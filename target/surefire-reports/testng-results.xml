@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="com.github.richardwilly98.elasticsearch.MyDummyRiverTest" duration-ms="1555" started-at="2013-11-05T09:33:22Z" finished-at="2013-11-05T09:33:23Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="1555" started-at="2013-11-05T09:33:22Z" finished-at="2013-11-05T09:33:23Z">
+      <class name="com.github.richardwilly98.elasticsearch.MyDummyRiverTest">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.github.richardwilly98.elasticsearch.MyDummyRiverTest@26a78299]" name="beforeSuite" is-config="true" duration-ms="2069" started-at="2013-11-05T04:33:20Z" finished-at="2013-11-05T04:33:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="registerRiver()[pri:0, instance:com.github.richardwilly98.elasticsearch.MyDummyRiverTest@26a78299]" name="registerRiver" is-config="true" duration-ms="493" started-at="2013-11-05T04:33:22Z" finished-at="2013-11-05T04:33:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registerRiver -->
+        <test-method status="PASS" signature="testRiverStarted()[pri:0, instance:com.github.richardwilly98.elasticsearch.MyDummyRiverTest@26a78299]" name="testRiverStarted" duration-ms="2" started-at="2013-11-05T04:33:22Z" finished-at="2013-11-05T04:33:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRiverStarted -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:com.github.richardwilly98.elasticsearch.MyDummyRiverTest@26a78299]" name="cleanUp" is-config="true" duration-ms="1053" started-at="2013-11-05T04:33:22Z" finished-at="2013-11-05T04:33:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.github.richardwilly98.elasticsearch.MyDummyRiverTest@26a78299]" name="afterSuite" is-config="true" duration-ms="29" started-at="2013-11-05T04:33:23Z" finished-at="2013-11-05T04:33:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- com.github.richardwilly98.elasticsearch.MyDummyRiverTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- com.github.richardwilly98.elasticsearch.MyDummyRiverTest -->
+</testng-results>
