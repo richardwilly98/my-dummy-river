@@ -1,7 +1,0 @@
-{
-	"type": "my-dummy-river",
-	"index": {
-		"name": "%s",
-		"throttle_size": 2000
-	}
-}
