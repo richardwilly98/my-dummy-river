@@ -24,19 +24,16 @@ import static org.hamcrest.Matchers.equalTo;
 
 import org.elasticsearch.action.admin.cluster.health.ClusterHealthResponse;
 import org.elasticsearch.action.get.GetResponse;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 @Test
-public class MyDummyRiverTest extends MyDummyRiverTestAbstract {
+public class LoopRegisterMyDummyRiverTest extends MyDummyRiverTestAbstract {
 
-    protected MyDummyRiverTest() {
+    protected LoopRegisterMyDummyRiverTest() {
         super("my-dummy-river-" + System.currentTimeMillis(), "my-dummy-index-" + System.currentTimeMillis());
     }
 
-    @BeforeClass
-    public void registerRiver() {
+    private void registerRiver(String index) {
         logger.debug("*** registerRiver ***");
         try {
             super.createRiver(TEST_MY_DUMMY_RIVER_JSON, (Object)index);
@@ -46,15 +43,14 @@ public class MyDummyRiverTest extends MyDummyRiverTestAbstract {
         }
     }
 
-    @AfterClass
-    public void cleanUp() {
+    private void cleanUp() {
         super.deleteRiver();
     }
 
-    @Test
-    public void testRiverStarted() throws Throwable {
+    private void testRegisterRiver(String index) throws Throwable {
         logger.debug("Start testRiverStarted");
         try {
+        	registerRiver(index);
         	assertThat(getNode().client().admin().indices().prepareExists("_river").get().isExists(), equalTo(true));
         	GetResponse response = getNode().client().prepareGet("_river", river, "_meta").get();
         	assertThat(response.isExists(), equalTo(true));
@@ -62,11 +58,25 @@ public class MyDummyRiverTest extends MyDummyRiverTestAbstract {
                     .actionGet();
             logger.info("Done Cluster Health, status " + clusterHealth.getStatus());
         	assertThat(getNode().client().admin().indices().prepareExists(index).get().isExists(), equalTo(true));
+        	Thread.sleep(1000);
         } catch (Throwable t) {
             logger.error("testRiverStarted failed.", t);
             t.printStackTrace();
             throw t;
+        } finally {
+        	cleanUp();
         }
+    }
+    
+    @Test
+    public void registerMultipleRivers() throws Throwable {
+    	int max = 10;
+    	int count = 0;
+    	while (count < max) {
+    		String index = "my-dummy-index";
+    		testRegisterRiver(index);
+    		count++;
+    	}
     }
 
 }

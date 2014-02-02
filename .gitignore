@@ -29,6 +29,7 @@ local.properties
 .buildpath
 
 target/
+test-output/
 
 #################
 ## Visual Studio

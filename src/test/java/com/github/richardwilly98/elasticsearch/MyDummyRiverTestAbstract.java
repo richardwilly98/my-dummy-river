@@ -87,7 +87,8 @@ public abstract class MyDummyRiverTestAbstract {
             if (!initialSettings.v2().pluginsFile().exists()) {
                 FileSystemUtils.mkdirs(initialSettings.v2().pluginsFile());
                 if (settings.getByPrefix("plugins") != null) {
-                    PluginManager pluginManager = new PluginManager(initialSettings.v2(), null, OutputMode.DEFAULT);
+//                    PluginManager pluginManager = new PluginManager(initialSettings.v2(), null, OutputMode.DEFAULT);
+                	PluginManager pluginManager = new PluginManager(initialSettings.v2(), null, OutputMode.DEFAULT, PluginManager.DEFAULT_TIMEOUT);
 
                     Map<String, String> plugins = settings.getByPrefix("plugins").getAsMap();
                     for (String key : plugins.keySet()) {
@@ -99,7 +100,7 @@ public abstract class MyDummyRiverTestAbstract {
                 logger.info("Plugin {} has been already installed.", settings.get("plugins.lang-javascript"));
             }
 
-            node = nodeBuilder().local(true).settings(settings).node();
+            node = nodeBuilder().settings(settings).node();
         } catch (Exception ex) {
             logger.error("setupElasticsearchServer failed", ex);
             throw ex;
