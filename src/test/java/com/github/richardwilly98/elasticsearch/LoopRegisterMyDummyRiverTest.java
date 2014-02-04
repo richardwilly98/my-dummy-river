@@ -70,7 +70,7 @@ public class LoopRegisterMyDummyRiverTest extends MyDummyRiverTestAbstract {
     
     @Test
     public void registerMultipleRivers() throws Throwable {
-    	int max = 10;
+    	int max = 100;
     	int count = 0;
     	while (count < max) {
     		String index = "my-dummy-index";
